@@ -1,7 +1,5 @@
 # action-alpine-abuild
-Alpine Linux package builder in Docker
-# action-docker-build
-A plugin for [Actions CI](https://github.com/features/actions) to build and label Docker images with minimal effort
+A plugin for [Actions CI](https://github.com/features/actions) Alpine Linux package builder
 
 ## Configuration
 
