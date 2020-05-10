@@ -1,0 +1,27 @@
+name: 'alpine abuild'
+author: 'triptixx'
+description: 'A Action CI plugin for tagging and pushing built Docker images'
+inputs:
+  docker_username:
+    description: 'docker registry username'
+    required: true
+  docker_password:
+    description: 'docker registry password'
+    required: true
+  from:
+    description: 're-tag from this repo'
+  repo:
+    description: 'tag to this repo/repo to push to'
+    required: true
+  registry:
+    description: 'docker registry of your account'
+  tags:
+    description: 'tag TARGET_IMAGE that refers to SOURCE_IMAGE'
+  test_tag:
+    description: 'Running in tags test mode'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'package'
+  color: 'blue'
