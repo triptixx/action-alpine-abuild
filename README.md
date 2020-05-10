@@ -13,5 +13,6 @@ steps:
 ```
 
 ### Available options
-- `private_key`          this is the contents of your RSA private key. _required_
-- `public_key`           this is the contents of your RSA public key. _required_
+- `private_key`          the contents of your RSA private key. _optional_
+- `public_key`           the contents of your RSA public key. _optional_
+- `packager`             the name of the package used in package metadata. _default: `Glider Labs <team@gliderlabs.com>`_
