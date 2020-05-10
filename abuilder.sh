@@ -27,6 +27,7 @@ fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
+id
 sudo cat /etc/apk/keys/abuild.rsa.pub
 cat "$ABUILD_RSA"
 
