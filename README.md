@@ -1,5 +1,5 @@
 # action-alpine-abuild
-A plugin for [Actions CI](https://github.com/features/actions) Alpine Linux package builder
+A plugin for [Actions CI](https://github.com/features/actions) to Alpine Linux package builder
 
 ## Configuration
 
