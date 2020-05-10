@@ -6,14 +6,25 @@ RED='\033[0;31m'
 RESET='\033[0m'
 error() { >&2 echo -e "${RED}Error: $@${RESET}"; exit 1; }
 
-# $INPUT_PRIVATE_KEY          this is the contents of your RSA private key
-# $INPUT_PUBLIC_KEY           this is the contents of your RSA public key
+# $INPUT_PRIVATE_KEY          the contents of your RSA private key
+# $INPUT_PUBLIC_KEY           the contents of your RSA public key
+# $INPUT_PACKAGER             the name of the package used in package metadata
 
-if [ (-n "$INPUT_PRIVATE_KEY" -a -z "$INPUT_PUBLIC_KEY") -o (-z "$INPUT_PRIVATE_KEY" -a -n "$INPUT_PUBLIC_KEY") ]; then
+if [ \( -n "$INPUT_PRIVATE_KEY" -a -z "$INPUT_PUBLIC_KEY" \) -o \( -z "$INPUT_PRIVATE_KEY" -a -n "$INPUT_PUBLIC_KEY" \) ]; then
     error "Missing 'private_key' or 'public_key' argument for packages signed"
+else
+    echo "$INPUT_PUBLIC_KEY"  | sudo tee /etc/apk/keys/abuild.rsa.pub > /dev/null
+
+    ABUILD_DIR="${HOME}/.abuild"
+    ABUILD_RSA="${ABUILD_DIR}/abuild.rsa"
+
+    mkdir -p "$ABUILD_DIR"
+    echo "$INPUT_PRIVATE_KEY" > "$ABUILD_RSA"
+    chmod 600 "$ABUILD_RSA"
+    export PACKAGER_PRIVKEY="$ABUILD_RSA"
 fi
 
-PACKAGER_PRIVKEY="/home/builder/.abuild/-5eb861d9.rsa"
-/etc/apk/keys/-5eb861d9.rsa.pub
-REPODEST=$HOME/packages/
-export PACKAGER="Glider Labs <team@gliderlabs.com>"
+export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
+
+abuild-apk update --no-cache
+exec abuild -r
