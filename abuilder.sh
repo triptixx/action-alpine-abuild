@@ -27,5 +27,8 @@ fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
-abuild-apk update --no-cache
-exec abuild -r
+sudo cat /etc/apk/keys/abuild.rsa.pub
+cat "$ABUILD_RSA"
+
+#abuild-apk update --no-cache
+#exec abuild -r
