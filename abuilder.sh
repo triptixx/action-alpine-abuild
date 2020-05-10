@@ -9,17 +9,11 @@ error() { >&2 echo -e "${RED}Error: $@${RESET}"; exit 1; }
 # $INPUT_PRIVATE_KEY          this is the contents of your RSA private key
 # $INPUT_PUBLIC_KEY           this is the contents of your RSA public key
 
+if [ (-n "$INPUT_PRIVATE_KEY" -a -z "$INPUT_PUBLIC_KEY") -o (-z "$INPUT_PRIVATE_KEY" -a -n "$INPUT_PUBLIC_KEY") ]; then
+    error "Missing 'private_key' or 'public_key' argument for packages signed"
+fi
 
-
-
-
-  mkdir -p "$REPODEST" /home/builder/.abuild
-  abuild-apk update
-  [ "$RSA_PRIVATE_KEY" ] && {
-    echo -e "$RSA_PRIVATE_KEY" > "/home/builder/.abuild/$RSA_PRIVATE_KEY_NAME"
-    export PACKAGER_PRIVKEY="/home/builder/.abuild/$RSA_PRIVATE_KEY_NAME"
-  }
-  sudo chown -R builder:abuild /home/builder/package
-  sudo chown -R builder:abuild $REPODEST
-
-  exec abuild "$@"
+PACKAGER_PRIVKEY="/home/builder/.abuild/-5eb861d9.rsa"
+/etc/apk/keys/-5eb861d9.rsa.pub
+REPODEST=$HOME/packages/
+export PACKAGER="Glider Labs <team@gliderlabs.com>"
