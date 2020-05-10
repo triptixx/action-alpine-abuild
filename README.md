@@ -13,5 +13,5 @@ steps:
 ```
 
 ### Available options
-- `rsa_private_key`          This is the contents of your RSA private key. _required_
-- `rsa_public_key`           This is the contents of your RSA public key. _required_
+- `private_key`          this is the contents of your RSA private key. _required_
+- `public_key`           this is the contents of your RSA public key. _required_
