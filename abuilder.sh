@@ -27,7 +27,5 @@ fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
-ls -al "$HOME"
-
 abuild-apk update --no-cache
-#exec abuild -crF
+exec abuild -crF
