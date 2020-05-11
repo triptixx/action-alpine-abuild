@@ -28,6 +28,7 @@ fi
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
 cd "$GITHUB_WORKSPACE"
+ls -al
 
 abuild-apk update --no-cache
-exec abuild -crF
+#exec abuild -crF
