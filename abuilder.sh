@@ -27,6 +27,7 @@ fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
+abuild-keygen -n
 ls -al "$HOME"
 
 abuild-apk update --no-cache
