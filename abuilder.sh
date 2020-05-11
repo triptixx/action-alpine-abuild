@@ -27,8 +27,8 @@ fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
-abuild-keygen -n
-ls -al "$HOME"
+cd "$GITHUB_WORKSPACE"
+ls -al "$GITHUB_WORKSPACE"
 
 abuild-apk update --no-cache
 #exec abuild -crF
