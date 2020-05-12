@@ -26,9 +26,9 @@ else
 fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
-export REPODEST="${GITHUB_WORKSPACE}/packages"
+#export REPODEST="${GITHUB_WORKSPACE}/packages"
 
 cd "$GITHUB_WORKSPACE"
 
 abuild-apk update
-exec abuild -crF
+exec abuild -crF -P "${GITHUB_WORKSPACE}/packages" -D "$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}')"
