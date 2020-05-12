@@ -26,6 +26,7 @@ else
 fi
 
 export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
+export REPODEST="${GITHUB_WORKSPACE}/packages"
 
 cd "$GITHUB_WORKSPACE"
 
