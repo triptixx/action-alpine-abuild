@@ -30,6 +30,5 @@ export REPODEST="${GITHUB_WORKSPACE}/packages"
 
 cd "$GITHUB_WORKSPACE"
 
-apk update
 abuild-apk update
 exec abuild -crF
