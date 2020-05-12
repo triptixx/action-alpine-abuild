@@ -30,4 +30,4 @@ export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 cd "$GITHUB_WORKSPACE"
 
 abuild-apk update
-exec abuild -crF -P "${GITHUB_WORKSPACE}/packages"
+exec abuild -crF -P "/packages"
