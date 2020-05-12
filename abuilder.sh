@@ -32,4 +32,4 @@ cd "$GITHUB_WORKSPACE"
 
 apk update
 abuild-apk update
-exec abuild -vcrF
+exec abuild -crF
