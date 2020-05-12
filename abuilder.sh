@@ -29,5 +29,6 @@ export PACKAGER="${INPUT_PACKAGER:-Glider Labs <team@gliderlabs.com>}"
 
 cd "$GITHUB_WORKSPACE"
 
+apk update
 abuild-apk update
 exec abuild -vcrF
