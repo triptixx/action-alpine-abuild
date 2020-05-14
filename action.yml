@@ -2,6 +2,8 @@ name: 'alpine abuild'
 author: 'triptixx'
 description: 'A Action CI plugin for Alpine Linux package builder'
 inputs:
+  name_key:
+    description: ''
   private_key:
     description: 'the contents of your RSA private key'
   public_key:
