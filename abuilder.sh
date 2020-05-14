@@ -14,10 +14,10 @@ if [ \( -n "$INPUT_PRIVATE_KEY" -a -z "$INPUT_PUBLIC_KEY" \) -o \
         \( -z "$INPUT_PRIVATE_KEY" -a -n "$INPUT_PUBLIC_KEY" \) ]; then
     error "Missing 'private_key' or 'public_key' argument for packages signed"
 else
-    echo "$INPUT_PUBLIC_KEY" > /etc/apk/keys/abuild.rsa.pub
+    echo "$INPUT_PUBLIC_KEY" > /etc/apk/keys/${INPUT_NAME_KEY}.rsa.pub
 
     ABUILD_DIR="${HOME}/.abuild"
-    ABUILD_RSA="${ABUILD_DIR}/abuild.rsa"
+    ABUILD_RSA="${ABUILD_DIR}/${INPUT_NAME_KEY}.rsa"
 
     mkdir -p "$ABUILD_DIR"
     echo "$INPUT_PRIVATE_KEY" > "$ABUILD_RSA"
