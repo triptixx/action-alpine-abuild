@@ -9,6 +9,7 @@ steps:
   - name: abuild
     uses: triptixx/action-alpine-build@master
     with:
+      name_key: name of key (without extension)
       private_key: var_private_key
       public_key: var_public_key
       packager: 'Triptixx Lab <triptixx@masterlabs.net>'
