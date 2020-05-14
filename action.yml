@@ -3,7 +3,7 @@ author: 'triptixx'
 description: 'A Action CI plugin for Alpine Linux package builder'
 inputs:
   name_key:
-    description: ''
+    description: 'name of key (without extension)'
   private_key:
     description: 'the contents of your RSA private key'
   public_key:
